@@ -1,63 +1,113 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function PersonalizedAdvice({ userMood, stressScore }) {
-  const getAdviceContent = () => {
-    if (stressScore > 7) {
-      return {
-        title: "High Stress Management",
-        text: "It seems you’re experiencing high stress. Try some relaxation techniques like deep breathing or progressive muscle relaxation. Remember to take breaks throughout your day.",
-        videoUrl: "https://www.example.com/stress-relief-video", // Replace with an actual URL
-        additionalAdvice: "Consider activities like yoga, meditation, or a walk outside. Even a few minutes can make a big difference."
-      };
-    } else if (userMood === "sad") {
-      return {
-        title: "Uplifting Activities",
-        text: "Feeling down? Doing something enjoyable like listening to music or calling a friend can help lift your mood. Start with something small.",
-        videoUrl: "https://www.example.com/uplifting-activities-video", // Replace with an actual URL
-        additionalAdvice: "Try journaling about your feelings or watching a short, feel-good video."
-      };
-    } else if (userMood === "happy") {
-      return {
-        title: "Maintain Your Positive Mood",
-        text: "You’re in a great mood! Keep up with what makes you feel good. Remember to incorporate these positive activities into your daily routine.",
-        videoUrl: "https://www.example.com/maintain-happiness-video", // Replace with an actual URL
-        additionalAdvice: "Consider sharing your happiness with others or setting new, uplifting goals to keep this momentum."
-      };
-    } else {
-      return {
-        title: "Wellness Advice",
-        text: "Keep up the good work! Consistency is key to maintaining mental well-being.",
-        additionalAdvice: "Remember to take care of yourself and do something you enjoy each day."
-      };
-    }
+const adviceData = [
+  {
+    mood: 'happy',
+    title: 'Keep the Joy Alive',
+    text: 'Happiness is contagious! Share your joy with others and make their day brighter.',
+    videoURL: 'https://www.example.com/happy-video',
+    additionalAdvice: 'Try writing down three things you’re grateful for today.'
+  },
+  {
+    mood: 'sad',
+    title: 'It’s Okay to Feel Sad',
+    text: 'Feeling sad is part of life. Take some time for self-care and reach out to a loved one.',
+    videoURL: 'https://www.example.com/sad-video',
+    additionalAdvice: 'Listen to calming music or practice mindfulness meditation.'
+  },
+  {
+    mood: 'stressed',
+    title: 'Dealing with Stress',
+    text: 'Stress is a sign to pause. Breathe deeply, take a break, or go for a walk.',
+    videoURL: 'https://www.example.com/stress-video',
+    additionalAdvice: 'Use a planner to organize tasks and prioritize self-care.'
+  },
+  {
+    mood: 'excited',
+    title: 'Channel Your Excitement',
+    text: 'Excitement fuels creativity! Dive into a project or celebrate with friends.',
+    videoURL: 'https://www.example.com/excited-video',
+    additionalAdvice: 'Write down your goals and visualize success.'
+  }
+];
+
+const PersonalizedAdvice = () => {
+  const [name, setName] = useState('');
+  const [mood, setMood] = useState('');
+  const [selectedAdvice, setSelectedAdvice] = useState(null);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const advice = adviceData.find((item) => item.mood.toLowerCase() === mood.toLowerCase());
+    setSelectedAdvice(advice || {
+      title: 'Advice Not Found',
+      text: `Sorry ${name}, we don’t have advice for that mood yet.`,
+      videoURL: '',
+      additionalAdvice: 'Consider exploring our general resources for more help.'
+    });
   };
 
-  const { title, text, videoUrl, additionalAdvice } = getAdviceContent();
-
   return (
-    <div className="advice-block">
-      <h2>{title}</h2>
-      <p>{text}</p>
-      {videoUrl && (
-        <div className="video-block">
-          <p>Watch this video for more tips:</p>
-          <iframe
-            src={videoUrl}
-            title="Advice Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+    <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+      <h1>Personalized Advice</h1>
+      <form onSubmit={handleFormSubmit} style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '10px' }}>
+          <label style={{ display: 'block', marginBottom: '5px' }}>Your Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+            style={{ padding: '10px', width: '100%', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label style={{ display: 'block', marginBottom: '5px' }}>Your Mood:</label>
+          <input
+            type="text"
+            value={mood}
+            onChange={(e) => setMood(e.target.value)}
+            placeholder="e.g., happy, sad, stressed"
+            style={{ padding: '10px', width: '100%', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+        </div>
+        <button
+          type="submit"
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#007BFF',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Get Advice
+        </button>
+      </form>
+      {selectedAdvice && (
+        <div
+          style={{
+            backgroundColor: '#f9f9f9',
+            padding: '15px',
+            borderRadius: '4px',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+          }}
+        >
+          <h2>{selectedAdvice.title}</h2>
+          <p>{selectedAdvice.text}</p>
+          {selectedAdvice.videoURL && (
+            <p>
+              <a href={selectedAdvice.videoURL} target="_blank" rel="noopener noreferrer" style={{ color: '#007BFF' }}>
+                Watch a helpful video
+              </a>
+            </p>
+          )}
+          <p><strong>Additional Advice:</strong> {selectedAdvice.additionalAdvice}</p>
         </div>
       )}
-      <div className="additional-advice">
-        <p>{additionalAdvice}</p>
-      </div>
     </div>
   );
-}
+};
 
 export default PersonalizedAdvice;
-
-
-

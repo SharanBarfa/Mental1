@@ -14,7 +14,7 @@ const Nav = () => {
       <ul >
         <li><NavLink  to="/">Home</NavLink></li>
         <li><NavLink to="/PersonalizedAdvice">Personalized Advice</NavLink></li>
-        <li><NavLink to="#Physiotherepist">Physiotherapist</NavLink></li>
+        {/* <li><NavLink to="#Physiotherepist">Physiotherapist</NavLink></li> */}
         <li><NavLink to="/quiz">Quiz</NavLink></li>
         <li><NavLink to="/articles">Articles</NavLink></li>
         <li><NavLink to="/Feedback">Feedback</NavLink></li>

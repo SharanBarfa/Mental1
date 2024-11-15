@@ -4,8 +4,7 @@ const founders = [
   {
     name: 'Sharan Barfa',
     role: 'Front-end Devloper', 
-  
-    image: 'Frontend\src\images\image.png', // Replace with actual image file
+    image: ' https://in.linkedin.com/in/sharan-barfa', // Replace with actual image file
   },
   {
     name: 'Sakshi Borse',

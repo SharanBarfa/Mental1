@@ -15,7 +15,6 @@ import Schizophrenia from "../pages/Schizophrenia";
 import Psychosis from "../pages/Psychosis";
 import Quiz from "../pages/Quiz";
 import Feedback from "../pages/feedback";
-import PersonalizedAdvice from"../pages/PersonalizedAdvice";
 import Relax from "../pages/Relax";
 import ptsd from "../pages/Ptsd";
 import Volunteer from "../pages/Volunteer";
@@ -25,12 +24,10 @@ import AnxietyQuiz from "../pages/AnxietyQuiz";
 import DepressionQuiz from "../pages/DepressionQuiz";
 import SupportGroupsMain from "../pages/SupportGroupsMain";
 import Ptsd from "../pages/Ptsd";
+import PersonalizedAdvice from "../pages/PersonalizedAdvice";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  const [userMood, setUserMood] = useState("happy"); // Example mood state
-  const [stressScore, setStressScore] = useState(5);
-
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -54,29 +51,20 @@ const App = () => {
           <Route path="psychosis" element={<Psychosis />} />
           <Route path="support-groups" element={<SupportGroupsMain />} />
           <Route path="quiz" element={<Quiz />} />
-          <Route path="PersonalizedAdvice" element={<PersonalizedAdvice />} />
           <Route path="Feedback" element={<Feedback />} />
           <Route path="anxiety-quiz" element={<AnxietyQuiz />} />
           <Route path="depression-quiz" element={<DepressionQuiz />} />
           <Route path="relax" element={<Relax />} />
          
           <Route path="volunteer" element={<Volunteer />} />
-          <Route path="contact" element={<ContactUs />} />
+          <Route path="ContactUs" element={<ContactUs />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="createpost" element={<CreatePost isAuth={isAuth} />} />
           <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
+          <Route path="PersonalizedAdvice" element={<PersonalizedAdvice />} />
         </Route>
       </Routes>
     </>
-  );
-  
-
-  return (
-    <div className="app">
-      <h1>Mental Health Tracker</h1>
-      <PersonalizedAdvice userMood={userMood} stressScore={stressScore} />
-      {/* Additional components like mood tracker, journal entry, etc. */}
-    </div>
   );
 
 };

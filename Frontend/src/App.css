@@ -33,14 +33,27 @@ nav ul li{
   color: #e6f7ff;
 }
 
+.nav ul li a {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.nav ul li a:hover{
+  cursor: pointer;
+  color: rgb(176, 176, 240);
+}
+
 nav ul .login_btn{
   border-radius: 8px;
   border: none;
-  background: #5a11e3;
+  background: #3920ab;
   color: #fff;
   padding: 8px 25px;
   font-size: 18px;
   margin-left: 10px;
+}
+.login_btn:hover{
+  background-color: #1f0479;
 }
 
 nav ul li a {
@@ -241,9 +254,7 @@ blockquote {
   position: absolute;
   top: 20%;
   right: 20px;
-  /* transform: translateY(-50%);
-   transition: 3s; */
-   width: 50%; 
+  width: 50%; 
 }
 
 .text-box-home {
@@ -325,14 +336,14 @@ blockquote {
 
 .Quiz .card-content button {
   font-size: 1.25em;
-  box-shadow: 2px 2px 4px rgba(255, 132, 132, 0.2);
-  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(37, 3, 93, 0.2);
+  border-radius: 15px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .Quiz .card-content button:hover {
   transform: scale(1.1);
-  box-shadow: 4px 4px 6px rgba(215, 66, 66, 0.4);
+  box-shadow: 4px 4px 6px rgba(7, 6, 69, 0.4);
   cursor: alias;
 }
 
@@ -748,19 +759,20 @@ blockquote {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  background-image: url("https://www.designyourway.net/blog/wp-content/uploads/2018/11/pastel-background-goo.jpg"); /* Replace with the actual path to your image */
   background-size: cover;
   background-position: center;
   color: #000000;
 }
 
 .contact-info {
-  flex: 1;
+  /* flex: 1; */
   padding: 2rem;
-  background-image: url("https://t4.ftcdn.net/jpg/05/08/85/65/360_F_508856527_j47VSpWgbNbECuiOa9kSUllJBuZ2V1hF.jpg"); /* Replace with the actual path to your background image */
+  width: 550px;
+  height: 400px;
   background-size: cover;
-  background-color: white;
+  background-color: #d1e2fa;
   border-radius: 10px;
+  margin-right: 10px;
 }
 
 .address {
@@ -792,9 +804,10 @@ blockquote {
 .contact-form {
   flex: 1;
   padding: 2rem;
-  background-image: url("https://t4.ftcdn.net/jpg/05/08/85/65/360_F_508856527_j47VSpWgbNbECuiOa9kSUllJBuZ2V1hF.jpg"); /* Replace with the actual path to your background image */
+  width: 550px;
+  height: 400px;
+  background-color: #d1e2fa;
   background-size: cover; /* Cover the entire element */
-  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -819,7 +832,7 @@ textarea {
 }
 
 button[type="submit"] {
-  background-color: #000000;
+  background-color: #1d4abd;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -830,7 +843,8 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #ec1313;
+  
+  background-color: #0a1a42;
 }
 
 .contact-form,
@@ -842,7 +856,7 @@ button[type="submit"]:hover {
 
 /* Animation for fade-in */
 .contact-container {
-  animation: fadeIn 5s  ease-in-out forwards; /* Run the fadeIn animation */
+  animation: fadeIn 3s  ease-in-out forwards; /* Run the fadeIn animation */
 }
 
 /* Define the fadeIn animation */
@@ -1094,8 +1108,8 @@ button[type="submit"]:hover {
 .about-us {
   text-align: center;
   padding: 40px;
-  background-color: #ffb6c1;
-  background-image: url("https://images.template.net/94766/pastel-pink-background-yw0ub.jpg");
+  background-color: #e0e5f4;
+  background-image: url("https:");
 }
 
 .founders {
@@ -1175,26 +1189,7 @@ button[type="submit"]:hover {
   font-size: 16px;
   color: #777;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* my chaged css */
-
-
-
+ /* quiz CSS */
 #hero {
   /* background: #e6f7ff; */
   text-align: center; 
@@ -1356,7 +1351,7 @@ input[type="radio"]:checked ~ .star {
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: none;
   padding-left: 20px;
 }
 

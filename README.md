@@ -1,7 +1,7 @@
 
-# Sukoon - A Website related to Mental Health Disorders
+# Mentel Health Assisement - A Website related to Mental Health Disorders
 
-'Sukoon' is a Hindi word which translates to 'Peace' in  the English language. It is a full stack project on the theme of 'Mental Health ' built with the aim to act as a fully comprehensive website to raise awareness and provide resources regarding all sorts of issues related to the same.   
+
 
 By dedicating our website to this theme, we aim to break the stigma surrounding mental health issues and provide a safe space for individuals to learn, share their experiences, and find resources that can help them navigate through their mental health journey.
 
@@ -13,9 +13,9 @@ The foundation of this project is our unwavering belief that every individual de
 
 ## Project Information
 
-Please note that Sukoon is an ongoing project. Features and the technology stack may evolve as development progresses. Any updates or changes will be reflected in the README file to keep you informed.
+Please note that Mentel Health Assisement is an ongoing project. Features and the technology stack may evolve as development progresses. Any updates or changes will be reflected in the README file to keep you informed.
 
-#### Update : the development of this project was started around August 2023 and finished by 1 December 2023. We no longer aim to update it as frequently as previously. 
+#### Update : the development of this project was started around June 2024 and finished by December 2024. We no longer aim to update it as frequently as previously. 
 
 ## Tech Stack
 
@@ -27,17 +27,16 @@ Please note that Sukoon is an ongoing project. Features and the technology stack
 
 ## Authors
 
-- Mansi Rawat [@mansir04](https://github.com/mansir04)
-- Shaheera Fatima [@shaheera02](https://github.com/shaheera02)
-- Aayushi Kushwaha [@Aayushi1111](https://github.com/Aayushi1111)
-- Ananya Shanker [@AnanyaShanker](https://github.com/AnanyaShanker)
+- Sharan Barfa [@SharanBarfa](https://github.com/SharanBarfa)
+- Sakshi Borse [@sakshi](https://github.com/sakshiborse)
+
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/mansir04/MentalHealthMERN.git
+  git clone https:
 ```
 
 Go to the project directory
