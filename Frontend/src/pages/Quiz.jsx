@@ -9,7 +9,7 @@ import quiz4Image from '../images/ADHDQuiz-min.png';
 const Quiz = () => {
   return (
     <div className="Quiz">
-      <div className="container">
+      <div className="container-quiz">
         <h1 >Take A Mental Health Test</h1>
         <center>
           <h3 >
@@ -42,43 +42,6 @@ const Quiz = () => {
               <button><Link to="/depression-quiz">Take Quiz</Link></button>
             </div>
           </div>
-  
-          <div className="card">
-            <div className="card-image">
-              <img src={quiz3Image} alt="Quiz 3" />
-            </div>
-            <div className="card-content">
-              <h2>OCD Test</h2>
-              <p>Our quiz can help you determine whether you have OCD</p>
-              <button><Link to="/ocd-quiz">Take Quiz</Link></button>
-            </div>
-          </div>
-          </div>
-          {/* Start of second section and end of first */}
-          <div className="quiz-row">
-          <div className="card">
-            <div className="card-image">
-              <img src={quiz4Image} alt="Quiz 4" />
-            </div>
-            <div className="card-content">
-              <h2>ADHD Test</h2>
-              <p>
-                Our quiz can help you determine whether you
-                have ADHD
-              </p>
-              <button><Link to="/adhd-quiz">Take Quiz</Link></button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-image">
-              <img src={quiz1Image} alt="Quiz 1" />
-            </div>
-            <div className="card-content">
-              <h2>PTSD Test</h2>
-              <p>Our quiz can help you determine whether you have PTSD.</p>
-              <button><Link to="/anxiety-quiz">Take Quiz</Link></button>
-            </div>
-          </div>
           <div className="card">
             <div className="card-image">
               <img src={quiz3Image} alt="Quiz 1" />
@@ -89,17 +52,8 @@ const Quiz = () => {
               <button><Link to="/anxiety-quiz">Take Quiz</Link></button>
             </div>
           </div>
-          {/* End of the second section */}
-        </div>
-
-        {/* Text note at the end */}
-        <div className="end-note">
-          <marquee>
-          NOTE : Please remember that the results of these quizzes are not a substitute
-          for professional medical advice. If you have concerns about your mental
-          health, consult a healthcare professional.
-          </marquee>
-        </div>
+          
+          </div>
       </div>
     </div>
   );

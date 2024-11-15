@@ -1,18 +1,28 @@
-import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-import logo from "../images/mainlogo.png";
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+const Nav = () => {
+    const navigate = useNavigate();
 
-const Header = () => {
+      const handleLoginClick = () => {
+        navigate('/login');
+      };
+
   return (
-    <header>
-      <div className="nav-area">
-        <Link to="/" className="logo">
-          <img src={logo} alt="Logo" />
-        </Link>
-        <Navbar />
-      </div>
-    </header>
-  );
-};
+    <nav className='nav'>
+      <img src="/logo.png" alt="logo" height="50px" width="150px" />
+      <ul >
+        <li><NavLink  to="/">Home</NavLink></li>
+        <li><NavLink to="/PersonalizedAdvice">Personalized Advice</NavLink></li>
+        <li><NavLink to="#Physiotherepist">Physiotherapist</NavLink></li>
+        <li><NavLink to="/quiz">Quiz</NavLink></li>
+        <li><NavLink to="/articles">Articles</NavLink></li>
+        <li><NavLink to="/Feedback">Feedback</NavLink></li>
+        <button onClick={handleLoginClick} className="login_btn">LOGIN</button>
+      </ul>
 
-export default Header;
+    </nav>
+  )
+}
+
+export default Nav
