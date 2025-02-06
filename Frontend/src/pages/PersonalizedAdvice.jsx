@@ -5,7 +5,7 @@ const adviceData = [
     mood: 'happy',
     title: 'Keep the Joy Alive',
     text: 'Happiness is contagious! Share your joy with others and make their day brighter.',
-    videoURL: 'https://www.example.com/happy-video',
+    videoURL: 'https://youtu.be/7w36qFaYI2Q?si=64h5Hti3ypJa45yH',
     additionalAdvice: 'Try writing down three things you’re grateful for today.'
   },
   {
@@ -19,14 +19,14 @@ const adviceData = [
     mood: 'stressed',
     title: 'Dealing with Stress',
     text: 'Stress is a sign to pause. Breathe deeply, take a break, or go for a walk.',
-    videoURL: 'https://www.example.com/stress-video',
+    videoURL: 'https://youtu.be/sZZROeHtLp4?si=gc-eAfMUSJVFaiDx',
     additionalAdvice: 'Use a planner to organize tasks and prioritize self-care.'
   },
   {
     mood: 'excited',
     title: 'Channel Your Excitement',
     text: 'Excitement fuels creativity! Dive into a project or celebrate with friends.',
-    videoURL: 'https://www.example.com/excited-video',
+    videoURL: 'https://youtu.be/Y9A5wuTtblw?si=b0SgyAscIJ4u4OgT',
     additionalAdvice: 'Write down your goals and visualize success.'
   }
 ];
@@ -67,7 +67,7 @@ const PersonalizedAdvice = () => {
             type="text"
             value={mood}
             onChange={(e) => setMood(e.target.value)}
-            placeholder="e.g., happy, sad, stressed"
+            placeholder="e.g., happy, sad, stressed, excited"
             style={{ padding: '10px', width: '100%', borderRadius: '4px', border: '1px solid #ccc' }}
           />
         </div>

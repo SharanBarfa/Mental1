@@ -59,7 +59,7 @@ const ContactUs = () => {
           <div className="icon">
             <i className="fa fa-envelope"></i>
           </div>
-          <p>MantelHealthAssisment@gmail.com</p>
+          <p>MantelHealthAssessment@gmail.com</p>
         </div>
         <div className="social-icons">
           <a href="#" className="icon">

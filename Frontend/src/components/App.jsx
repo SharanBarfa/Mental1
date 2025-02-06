@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "./firebase-config";
-import CreatePost from "../pages/CreatePost";
-import Login from "../pages/Login";
-import Layout from "./Layout";
+// import Login from "../pages/Login";
+import Layout from "./layout";
 import Home from "../pages/Home";
 import Articles from "../pages/Articles";
 import Anxiety from "../pages/Anxiety";
@@ -19,27 +16,41 @@ import Relax from "../pages/Relax";
 import ptsd from "../pages/Ptsd";
 import Volunteer from "../pages/Volunteer";
 import ContactUs from "../pages/ContactUs";
-import SignUp from "../pages/SignUp";
+// import SignUp from "../pages/SignUp";
 import AnxietyQuiz from "../pages/AnxietyQuiz";
 import DepressionQuiz from "../pages/DepressionQuiz";
 import SupportGroupsMain from "../pages/SupportGroupsMain";
 import Ptsd from "../pages/Ptsd";
 import PersonalizedAdvice from "../pages/PersonalizedAdvice";
+import axios from "axios";
+// import SignUp from "./Signup";
+// import Signup from "../pages/SignUp";
+import login from "../pages/login";
+
 
 const App = () => {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  const signUserOut = () => {
-    signOut(auth).then(() => {
-      localStorage.clear();
-      setIsAuth(false);
-      window.location.pathname = "/login";
-    });
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+      axios.get('http://localhost:5000/user', { withCredentials: true })
+          .then(response => {
+              if (response.data.user) {
+                  setIsLoggedIn(true);
+              } else {
+                  setIsLoggedIn(false);
+              }
+          })
+          .catch(() => setIsLoggedIn(false));
+  }, []);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+      <Route path="/home" element={<Home />} />
+      {/* <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                  <Route path="/login" element={isLoggedIn ? <Navigate to="/home" /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+                  <Route path="/signup" element={isLoggedIn ? <Navigate to="/home" /> : <SignUp setIsLoggedIn={setIsLoggedIn} />} /> */}
+          <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="ptsd" element={<Ptsd/>} />
           <Route path="articles" element={<Articles />} />
@@ -58,10 +69,13 @@ const App = () => {
          
           <Route path="volunteer" element={<Volunteer />} />
           <Route path="ContactUs" element={<ContactUs />} />
-          <Route path="sign-up" element={<SignUp />} />
-          <Route path="createpost" element={<CreatePost isAuth={isAuth} />} />
-          <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
+          {/* <Route path="sign-up" element={<SignUp />} /> */}
+          {/* <Route path="createpost" element={<CreatePost isAuth={isAuth} />} /> */}
+          {/* <Route path="login" element={<Login setIsAuth={setIsAuth} />} /> */}
           <Route path="PersonalizedAdvice" element={<PersonalizedAdvice />} />
+
+          {/* <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} /> */}
         </Route>
       </Routes>
     </>

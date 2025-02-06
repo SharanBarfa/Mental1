@@ -5,9 +5,29 @@ import Home_info from '../components/Home_info';
 
 const Home = () => {
   const [joke, setJoke] = useState('');
+  const [quote, setQuote] = useState('');
+  const [author, setAuthor] = useState('');
+
+
+  const quotes = [
+    { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { text: "Success is not final; failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+    { text: "Don’t let yesterday take up too much of today.", author: "Will Rogers" },
+    { text: "It’s not whether you get knocked down, it’s whether you get up.", author: "Vince Lombardi" },
+    { text: "If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.", author: "Steve Jobs" },
+];
+
+const getRandomQuote = () => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+  setQuote(randomQuote.text);
+  setAuthor(randomQuote.author);
+};
+
 
   useEffect(() => {
     fetchJoke();
+    getRandomQuote();
   }, []);
 
   const fetchJoke = async () => {
@@ -34,14 +54,15 @@ const Home = () => {
                     <img src="\person-meditating-357x269.svg" alt="meditation_image" />
                 </div>
             </section>
-            <section id="video-content">
+            <section id="daily-quote">
+          <div >
+              <h2 >Daily Motivation</h2>
+              <p className='motivation_p'>{quote || "Your daily quote will appear here..."}</p>
+              <p className='motivation_p'>{author ? `- ${author}` : ""}</p>
+              <button className='motivation_button' onClick={getRandomQuote}>Show Another</button>
+          </div>
+      </section>
 
-            </section>
-            <section id="physiotherpist">
-                <div>
-
-                </div>
-            </section>
 
         <div className='home-allcontent'>
         <div className="random-joke">

@@ -1,63 +1,84 @@
-import React, { useEffect, useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth, db } from "../components/firebase-config";
-import MenuItems from "./MenuItems";
-import getMenuItems from "../menuItems";
-import "../App.css";
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
 
-  const menuItems = getMenuItems();
 
-  const [isAuth, setIsAuth] = useState(false); 
+// import { useAuthStore } from "../store/authStore";
+// const Header = () => {
+//   const { isAuthenticated } = useAuthStore();
+//   const handleLoginClick = () => {
+//     navigate('/login');
+//   };
 
-  const handleLogOutClick = () => {
-    
-    signOut(auth).then(() => {
-      setIsAuth(false); // Update the authentication state to false
-      localStorage.clear();
-      window.location.pathname = "/";
-    });
-  };
 
-  useEffect(() => {
-    // Set up Firebase authentication observer to listen for changes in the user's login status
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        setIsAuth(true); // Update the authentication state to true
-      } else {
-        // User is signed out.
-        setIsAuth(false); // Update the authentication state to false
-      }
-    });
+//   return (
+//     <div className=" text-[#E9E9E9] flex justify-between items-center px-12 h-14 bg-[#151A21]">
+//       <Link className="text-2xl" to="/">
+//         Vulnerabilities
+//       </Link>
+//       <div className="flex justify-center items-center gap-8 text-[1.1rem]">
+//         {isAuthenticated ? (
+//           <NavLink to={"/dashboard"}>Profile</NavLink>
+//         ) : (
+//           <NavLink to={"/login"}>Login</NavLink>
+//         )}
+//       </div>
+//       <nav className='nav'>
+//       <img src="\WEB_LOGO.png" alt="logo" height="60px" width="200px" />
+//       <ul >
+//         <li><NavLink  to="/">Home</NavLink></li>
+//         <li><NavLink to="/PersonalizedAdvice">Personalized Advice</NavLink></li>
+//         {/* <li><NavLink to="#Physiotherepist">Physiotherapist</NavLink></li> */}
+//         <li><NavLink to="/quiz">Quiz</NavLink></li>
+//         <li><NavLink to="/articles">Articles</NavLink></li>
+//         <li><NavLink to="/Feedback">Feedback</NavLink></li>
+//         <button onClick={handleLoginClick} className="login_btn">LOGIN</button>
+//       </ul>
 
-    // Clean up the observer when the component unmounts
-    return () => unsubscribe();
-  }, []);
+//     </nav>
+
+
+//     </div>
+//   );
+// };
+// export default Header;
+
+const Nav = () => {
+    const navigate = useNavigate();
+    <div className=" text-[#E9E9E9] flex justify-between items-center px-12 h-14 bg-[#151A21]">
+    <Link className="text-2xl" to="/">
+      Vulnerabilities
+    </Link>
+    {/* <div className="flex justify-center items-center gap-8 text-[1.1rem]">
+      {isAuthenticated ? (
+        <NavLink to={"/dashboard"}>Profile</NavLink>
+      ) : (
+        // <NavLink to={"/login"}>Login</NavLink>
+      )}
+    </div> */}
+  </div>
+      const handleLoginClick = () => {
+        navigate('/login');
+      };
 
   return (
-    <nav>
-      <ul className="menus">
-        {menuItems.map((menu, index) => {
-          const depthLevel = 0;
-          return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
-        })}
-      </ul>
-      <div className="menu-items">
-        {!isAuth ? (
-          <a href="/login">Login</a>
-        ) : (
-          <div className="auth-links">
-            <a href="/createpost">CreatePost</a>
-            <button className="LogOut-Button" onClick={handleLogOutClick}>
-              Logout
-            </button>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+ 
+    <nav className='nav'>
+      <img src="\WEB_LOGO.png" alt="logo" height="60px" width="200px" />
+      <ul >
+        <li><NavLink  to="/">Home</NavLink></li>
+        <li><NavLink to="/PersonalizedAdvice">Personalized Advice</NavLink></li>
+        {/* <li><NavLink to="#Physiotherepist">Physiotherapist</NavLink></li> */}
+        <li><NavLink to="/quiz">Quiz</NavLink></li>
+        <li><NavLink to="/articles">Articles</NavLink></li>
+        <li><NavLink to="/Feedback">Feedback</NavLink></li>
+        <button onClick={handleLoginClick} className="login_btn">LOGIN</button>
+      </ul>
+
+    </nav>
+  )
+}
+
+export default Nav

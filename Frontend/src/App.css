@@ -204,10 +204,10 @@ button span {
 }
 
 .random-joke-header {
-  margin-top: 70px;
-  background-image: url("./images/jokebg.jpeg");
+  margin-top: 20px;
+  background-image: url("./images/images.jpeg");
   padding: 30px; /* Increased padding for more height */
-  color: black;
+  color: rgb(12, 44, 78);
   display: flex;
   font-weight: bold;
   justify-content: center;
@@ -217,9 +217,13 @@ button span {
   height: 150%;
 }
 
+
 blockquote {
   align-items: center;
   text-align: center;
+}
+blockquote>h2{
+  color: #e5f1f5;
 }
 
 .container-home {
@@ -553,7 +557,7 @@ blockquote {
   margin-top: 5px;
 }
 
-.loginPage {
+/* .loginPage {
   width: 100%;
   height: 28em;
   display: flex;
@@ -564,9 +568,9 @@ blockquote {
 
 .loginPage p {
   font-size: 30px;
-}
+} */
 
-/* Google Button */
+/* Google Button
 .loginPage .login-with-google-btn {
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -602,7 +606,7 @@ blockquote {
 
 .loginPage button:hover {
   background-color: #0056b3;
-}
+} */
 
 .blogsPage {
   width: 100%;
@@ -750,7 +754,7 @@ blockquote {
 
 .resource-slider::-webkit-scrollbar {
   display: none;
-}
+ }
 
 /*contact us */
 
@@ -1151,14 +1155,16 @@ button[type="submit"]:hover {
 }
 
 .founder-image {
-  width: 100%;
   height: 100%;
-  object-fit: contain; /* Maintain image aspect ratio and fit it within the container */
-  max-height: 100%; /* Ensure the image doesn't exceed the container's height */
-  max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+  width: 100%;
+  background-size: auto; 
   position: absolute;
   top: 0;
   left: 0;
+}
+.founder-image>img{
+  height: 300px;
+  width: 300px;
 }
 
 .founder-details {
@@ -1216,58 +1222,107 @@ button[type="submit"]:hover {
   border-radius: 5px;
 }
 
+/* feedback css */
 
+/* General Container */
 .container {
-  max-width: 400px;
-  margin: 20px auto;
-  background-color: #e6f7ff;
-  /* background: white; */
+  max-width: 600px;
+  height: inherit;
+  margin: 5px;
+  justify-self: center;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #d1e2fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+/* Section Title */
+.container h2 {
   text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-label {
-  margin-top: 10px;
+/* Form Labels */
+form label {
   display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
 }
+
+/* Form Inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+form textarea {
+  resize: none;
+}
+
+/* Rating Stars */
 .rating {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-input[type="radio"] {
-  display: none;
+  max-width: 150px;
+  margin: 10px 0;
 }
 
 .star {
-  font-size: 30px;
-  color: #ccc;
+  font-size: 24px;
   cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s ease;
 }
 
+.star:hover,
 input[type="radio"]:checked ~ .star {
-  color: gold;
+  color: #f39c12;
 }
 
-#feedbackForm>button {
+/* Submit Button */
+form button {
+  width: 100%;
   padding: 10px;
   background-color: #007bff;
-  margin-top: 5%;
-  width: 100%; 
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 5px;
+  font-size: 18px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Response Message */
+#responseMessage {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+/* Error Response Styling */
+#responseMessage.error {
+  color: #e74c3c;
+}
+
+
 /* personalized advice */
-/* PersonalizedAdvice.css */
 .advice-block {
   margin: 20px auto;
   padding: 15px;
@@ -1369,3 +1424,78 @@ ul li {
 .assessment-category:last-child {
   margin-bottom: 0;
 }
+/* daily motivation */
+
+#daily-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+#daily-quote div {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+}
+
+#daily-quote h2 {
+  color: #300d5a;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Verdana", sans-serif;
+}
+
+.motivation_p {
+  font-size: 18px;
+  color: #1a1919;
+  margin: 10px 0;
+  font-family: "Verdana", sans-serif;
+}
+
+.motivation_button {
+  padding: 10px 20px;
+  background-color: #0a0d48;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.motivation_button:hover {
+  background-color: #0056b3;
+}
+
+#loginPage{
+  max-width: 600px;
+  height: 500px;
+  margin: 5px;
+  justify-self: center;
+  padding: 20px;
+  background-color: #d1e2fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+}
+#email{
+  margin-bottom: 30px;
+  justify-content: center;
+
+}
+#password{
+  margin-bottom: 30px;
+  justify-content: center;
+
+}
+#log_button{
+  justify-self: center;
+  
+}
+

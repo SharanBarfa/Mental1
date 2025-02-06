@@ -13,7 +13,7 @@ const Footer = () => {
           <a href="ContactUs">Contact</a>
         </div>
         <div className="footer-copyright">
-          &copy; {currentYear} Mentel Health Assisment. All rights reserved.
+          &copy; {currentYear} Mental Health Assessment. All rights reserved.
         </div>
       </div>
     </footer>

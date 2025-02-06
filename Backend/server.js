@@ -1,13 +1,33 @@
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
+require('dotenv').config()
+const bcryptjs = require("bcryptjs");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const jwt = require("jsonwebtoken");
+
+
+const bodyParser = require('body-parser');
+
+
+const axios = require("axios");
+const User = require("./userSchema");
 
 const app = express();
-const PORT = process.env.PORT || 5004;
+const PORT = process.env.PORT || 5000;
+const connectDB = require("./configDB");
+const Feedback = require("./feedbackSchema");
+connectDB();
 
-app.use(cors());
+app.use(bodyParser.json());
+
+app.use(cors({
+  origin: 'http://localhost:5173', 
+    credentials: true,}
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // Define memeTemplates array with valid template IDs
 const memeTemplates = [
@@ -48,7 +68,7 @@ const memeTemplates = [
   { id: "yodawg", name: "Xzibit Yo Dawg" },
   { id: "yuno", name: "Y U NO Guy" },
   { id: "zero-wing", name: "All Your Base Are Belong to Us" },
-  // Add more meme templates here
+ 
 ];
 
 app.post("/api/generateMeme", async (req, res) => {
@@ -78,6 +98,89 @@ app.post("/api/generateMeme", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Feedback Route
+app.post('/feedback', async (req, res) => {
+   try{
+    console.log(req.body);
+    const { name, email, rating, message } = req.body;
+
+    if (!name || !email || !rating || !message) {
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+    const newFeedback = new Feedback({
+      name,
+      email,
+      rating,
+      message
+  });
+
+  // Save to MongoDB
+  await newFeedback.save();
+
+  // Send success response
+  res.status(200).json({ message: 'Feedback submitted successfully' });
+   }
+   catch(err){
+    console.log(err);
+   }
 });
+
+//   try{
+//    console.log(req.body);
+//    const { name, email, password } = req.body;
+
+//    if (!name || !email || !password) {
+//        return res.status(400).json({ error: 'All fields are required' });
+//    }
+//    const newFeedback = new Feedback({
+//      name,
+//      email,
+//      rating,
+//      message
+//  });
+
+//  // Save to MongoDB
+//  await newFeedback.save();
+
+//  // Send success response
+//  res.status(200).json({ message: 'Feedback submitted successfully' });
+//   }
+//   catch(err){
+//    console.log(err);
+//   }
+// });
+
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
+
+// const app = express();
+// const PORT = 5000;
+
+// Middleware
+// app.use(bodyParser.json());
+// app.use(cors());
+
+// MongoDB Connection
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => console.log('MongoDB connected'))
+//   .catch(err => console.error(err));
+
+// Routes
+
+// Start Server
+// app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
