@@ -73,6 +73,4 @@ Run the application in Frontend folder on your localhost
   npm run dev
 ```
 
-###
 
-#### Note : This README is subject to updates as the project progresses. Check back for the latest information.
